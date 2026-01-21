@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Solitaire des Mots</title>
+    <link rel="stylesheet" href="style.css">
+    
+    </head>
+<body>
+
+    <header>
+        <div class="score-board">
+            <span id="txt-score">Score: 0</span>
+        </div>
+        <button id="btn-settings" onclick="openSettings()">⚙️</button>
+    </header>
+
+    <main id="game-board">
+        <div class="placeholder-msg">Chargement du jeu...</div>
+    </main>
+
+    <div class="controls">
+        <div id="deck-pile" class="card-back"></div>
+        <div id="active-card" class="card-slot"></div>
+    </div>
+
+    <div id="ad-banner">
+        <p style="font-size:10px; color:#999;">Publicité (Espace réservé 320x50)</p>
+    </div>
+
+    <div id="modal-settings" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="lbl-settings">Paramètres</h2>
+            
+            <label id="lbl-theme">Thème :</label>
+            <select id="select-theme" onchange="changeTheme(this.value)">
+                <option value="pop">Pop (Défaut)</option>
+                <option value="dark">Sombre</option>
+                <option value="zen">Zen</option>
+            </select>
+
+            <label id="lbl-lang">Langue :</label>
+            <select id="select-lang" onchange="changeLanguage(this.value)">
+                <option value="fr">Français 🇫🇷</option>
+                <option value="en">English 🇬🇧</option>
+            </select>
+
+            <button onclick="closeModal('modal-settings')" class="btn-close">OK</button>
+        </div>
+    </div>
+
+    <div id="modal-victory" class="modal hidden">
+        <div class="modal-content victory-style">
+            <h1>Bravo ! 🎉</h1>
+            <p>Score Final : <span id="final-score">1500</span></p>
+            
+            <button class="btn-primary" onclick="restartGame()">Rejouer</button>
+
+            <div class="donation-area">
+                <p class="donation-text">Ce jeu est gratuit. Si vous avez aimé, soutenez-moi !</p>
+                <a href="https://ko-fi.com/TON_PSEUDO" target="_blank" class="btn-coffee">
+                    ☕ Offrez-moi un café
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
